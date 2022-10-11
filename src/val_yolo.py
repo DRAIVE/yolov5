@@ -12,11 +12,12 @@ def main():
     metrics, maps, t = val.run(weights='runs/train/run4/weights/best.pt',
                   project='runs/val',
                   name='run',
-                  exist_ok=True,
+                  exist_ok=False,
                   save_json=False,
                   save_txt=False,
                   data='models/data_lp.yaml',
-                  conf_thres=params["conf_thres"])
+                  conf_thres=params["conf_thres"],
+                  iou_thres=params["iou_thres"])
     
     #save the validation results to json file
     val_results = {
