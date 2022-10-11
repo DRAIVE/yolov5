@@ -9,7 +9,7 @@ def main():
 
     #do validation
     #metrics = (mp, mr, map50, map, speed)
-    metrics, maps, t = val.run(weights='runs/train/run4/weights/best.pt',
+    metrics, maps, t = val.run(weights='runs/train/run/weights/best.pt',
                   project='runs/val',
                   name='run',
                   exist_ok=False,
@@ -25,7 +25,7 @@ def main():
         "mAP @ IoU 0.50": metrics[2],
         "Precision": metrics[0],
         "Recall": metrics[1]
-    } 
+    }
     if(not os.path.exists('dvc_metrics')):
         os.mkdir('dvc_metrics')
     with open("dvc_metrics/val_results.json", "w") as f:
