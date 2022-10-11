@@ -1,0 +1,45 @@
+stages:
+  install_requirements:
+    cmd: pip install -r src\requirements_yolo_updated.txt --extra-index-url https://download.pytorch.org/whl/cu116
+    deps:
+    - src\requirements_yolo_updated.txt
+  train:
+    cmd: python src\train_yolo.py
+    deps:
+    - src\train_yolo.py
+    - src\yolov5\
+    #metrics:
+    #- runs/train/run/results.csv:
+    #    cache: false
+    params:
+    - train.epochs
+    - train.batch_size
+    plots:
+    - runs/train/run/results.png:
+        cache: false
+    - runs/train/run/results.csv:
+        cache: false
+        x: "               epoch"
+        y: "   metrics/precision"
+    - runs/train/run/PR_curve.png:
+        cache: False
+    outs:
+    - models\
+  validate:
+    cmd: python src\val_yolo.py
+    deps:
+    - src\yolov5\
+    - src\val_yolo.py
+    - models\
+    params:
+    - validate.conf_thres
+    metrics:
+    - dvc_metrics/val_results.json:
+        cache: False
+    #- runs/val/run/best_predictions.json:
+    #    cache: False
+    plots:
+    - runs/val/run/F1_curve.png:
+        cache: False
+    - runs/val/run/PR_curve.png:
+        cache: False
