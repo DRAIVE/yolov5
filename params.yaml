@@ -1,0 +1,7 @@
+train:
+  epochs: 2
+  batch_size: 4
+
+validate:
+  conf_thres: 0.4
+  iou_thres: 0.5

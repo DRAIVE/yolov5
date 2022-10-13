@@ -1,0 +1,32 @@
+stages:
+  install_requirements:
+    cmd: pip install -r src/requirements_yolo_updated.txt --extra-index-url https://download.pytorch.org/whl/cu116
+    deps:
+    - src/requirements_yolo_updated.txt
+  
+  prepare:
+    cmd: python src/prepare.py
+    always_changed: true
+    outs: 
+    - src/submod_git
+
+  train:
+    cmd: python src/train_yolo.py
+    deps:
+    - src/train_yolo.py
+    - src/submod_git
+    params:
+    - train.epochs
+    - train.batch_size
+    outs:
+    - models/
+
+  validate:
+    cmd: python src/val_yolo.py
+    deps:
+    - src/submod_git
+    - src/val_yolo.py
+    - models/
+    params:
+    - validate.conf_thres
+    - validate.iou_thres
