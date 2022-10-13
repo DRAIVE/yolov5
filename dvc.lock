@@ -13,15 +13,15 @@ stages:
       md5: 9e728840c8a24683e1e82339cfb363c2
       size: 119
     - path: src/train_yolo.py
-      md5: 8af9ba6e27215b9aa462ca4f15921bb1
-      size: 1278
+      md5: aab1eb86a4b2655fa8024cb8351dc48d
+      size: 1279
     params:
       params.yaml:
         train.batch_size: 4
-        train.epochs: 1
+        train.epochs: 2
     outs:
     - path: models/
-      md5: c71af461f01de13a025eaf0dd473fb47.dir
+      md5: a5127ecddb84fba9e91e4ba4f1cbd3cf.dir
       size: 14429543
       nfiles: 2
   install_requirements:
@@ -34,15 +34,15 @@ stages:
     cmd: python src/val_yolo.py
     deps:
     - path: models/
-      md5: c71af461f01de13a025eaf0dd473fb47.dir
+      md5: a5127ecddb84fba9e91e4ba4f1cbd3cf.dir
       size: 14429543
       nfiles: 2
     - path: src/submod_git
       md5: 9e728840c8a24683e1e82339cfb363c2
       size: 119
     - path: src/val_yolo.py
-      md5: 0933b0c920e86630b3be6b5777c3c473
-      size: 1505
+      md5: 0dd4d468226e0f5d1d266181114eb8a0
+      size: 1981
     params:
       params.yaml:
         validate.conf_thres: 0.4

@@ -30,7 +30,7 @@ def main():
                     weights='yolov5s.pt',
                     project='runs/train',
                     name='run',
-                    exist_ok=True,
+                    exist_ok=False,
                     data='models\data_lp.yaml')
     
     #load and save the trained model
