@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/R0mAN/Documents/dvc/TC12_LP/new/ai-pipeline-mlflow-poc/mlruns/1/b3f070c9496a4a34a762b48dabfe67d8/artifacts
+end_time: 1665741368047
+entry_point_name: ''
+experiment_id: '1'
+lifecycle_stage: active
+name: ''
+run_id: b3f070c9496a4a34a762b48dabfe67d8
+run_uuid: b3f070c9496a4a34a762b48dabfe67d8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1665741308837
+status: 3
+tags: []
+user_id: R0mAN
