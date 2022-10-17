@@ -1,0 +1,49 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    outs:
+    - path: src/submod_git
+      md5: fa50bc27a2231b304a0f1a204c291682
+      size: 119
+  train:
+    cmd: python src/train_yolo.py
+    deps:
+    - path: src/submod_git
+      md5: fa50bc27a2231b304a0f1a204c291682
+      size: 119
+    - path: src/train_yolo.py
+      md5: aab1eb86a4b2655fa8024cb8351dc48d
+      size: 1279
+    params:
+      params.yaml:
+        train.batch_size: 4
+        train.epochs: 2
+    outs:
+    - path: models/
+      md5: 6eea8b77cba88b858b4efabe2781c459.dir
+      size: 14429543
+      nfiles: 2
+  install_requirements:
+    cmd: pip install -r src/requirements_yolo_updated.txt --extra-index-url https://download.pytorch.org/whl/cu116
+    deps:
+    - path: src/requirements_yolo_updated.txt
+      md5: f16c8d5da063ac6010600f951526ea74
+      size: 1294
+  validate:
+    cmd: python src/val_yolo.py
+    deps:
+    - path: models/
+      md5: 6eea8b77cba88b858b4efabe2781c459.dir
+      size: 14429543
+      nfiles: 2
+    - path: src/submod_git
+      md5: fa50bc27a2231b304a0f1a204c291682
+      size: 119
+    - path: src/val_yolo.py
+      md5: 29d952c5efa677245103eeed599e1f82
+      size: 2217
+    params:
+      params.yaml:
+        validate.conf_thres: 0.3
+        validate.iou_thres: 0.5

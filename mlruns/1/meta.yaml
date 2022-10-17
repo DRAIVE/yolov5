@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Users/R0mAN/Documents/dvc/TC12_LP/new/ai-pipeline-mlflow-poc/mlruns/1
+creation_time: 1665741308552
+experiment_id: '1'
+last_update_time: 1665741308552
+lifecycle_stage: active
+name: License plate detection using YOLOv5
