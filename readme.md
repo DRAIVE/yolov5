@@ -20,7 +20,7 @@ graph LR
 
 ## Context
 
-This is a proof of concept created to verify the MLFLow tool's functionality to handle the experiment tracking and comparison. The YOLOv5 object detection model is used here. Another DVC repo which was parallelly created to handle DVC for dataset management is used for accessing(S3) the versioned dataset for training. Both the YOLOv5 and DVC-dataset repos are added as submodules. The training and validation stages are handled using a DVC pipeline and mlflow handles the experiment tracking.
+This is a proof of concept created to verify the MLFLow tool's functionality to handle the experiment tracking and comparison. The YOLOv5 object detection model is used here. Another DVC repo which was parallelly created to handle DVC for dataset management is used for accessing(S3) the versioned dataset for training. Both the YOLOv5 and DVC-dataset repos are embedded as sub-directories to this repo. The training and validation stages are handled using a DVC pipeline and mlflow handles the experiment tracking.
 
 ## Usage
 
