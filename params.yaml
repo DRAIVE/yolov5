@@ -1,5 +1,5 @@
 train:
-  epochs: 2
+  epochs: 1
   batch_size: 4
 
 validate:

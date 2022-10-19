@@ -27,7 +27,6 @@ def main():
                   iou_thres=params_val["iou_thres"])
     
     #log parameters
-    mlflow.log_param("Dataset", "/data/ai-dataset-dvc-poc/data/OpenALPR/")
     mlflow.log_param("Training epochs", params_train["epochs"])
     mlflow.log_param("Training Batch size", params_train["batch_size"])
     mlflow.log_param("Confidence threshold", params_val["conf_thres"])
