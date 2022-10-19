@@ -32,8 +32,8 @@ stages:
     cmd: pip install -r src/requirements_yolo_updated.txt --extra-index-url https://download.pytorch.org/whl/cu116
     deps:
     - path: src/requirements_yolo_updated.txt
-      md5: f16c8d5da063ac6010600f951526ea74
-      size: 1294
+      md5: f51d0abd2de8b6ab7535708964f20eb2
+      size: 1311
   validate:
     cmd: python src/val_yolo.py
     deps:
