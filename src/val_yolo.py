@@ -7,12 +7,16 @@ import os
 def main():
     mlflow.set_experiment("License plate detection using YOLOv5")
     
-    #start mlfow
-    mlflow.start_run()
-    
     #load params.yaml file
     params_val = yaml.safe_load(open("params.yaml"))["validate"]
     params_train = yaml.safe_load(open("params.yaml"))["train"]
+    params_dl = yaml.safe_load(open("params.yaml"))["download"]
+    
+  
+    #start mlfow
+    mlflow.start_run(
+        description=f'Dataset in LakeFS:{params_dl["url"]}/repositories/{params_dl["bucket"]}/objects?path={params_dl["path"]}&ref={params_dl["commit"]}'
+    )
 
     #do validation
     #metrics = (mp, mr, map50, map, speed)
