@@ -27,6 +27,5 @@ This is a proof of concept created to verify the MLFLow tool's functionality to 
 Steps:
 - Clone the repo to a local machine
 - Configure the awscli with lakefs credentials, using [awscli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)
-- Do 'dvc pull' to download the dataset. (The version of the dataset corresponds to the commit of the repo)
-- Comeback to main directory and run the pipeline using 'dvc repro'
+- Run the pipeline using 'dvc repro'
 - Use mlflow [commands](https://mlflow.org/docs/latest/cli.html#mlflow-ui) to visualize different runs
