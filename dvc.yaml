@@ -11,7 +11,7 @@ stages:
     - src/submod_git
   
   download:
-    cmd: aws --endpoint-url http://jensen.etit.tu-chemnitz.de:9010 s3 cp s3://openalpr/eec6e1da4255/OpenALPR/JPEGImages/ data --recursive 
+    cmd: aws --endpoint-url ${download.url} s3 cp s3:${download.path} data --recursive 
     outs: 
     - data/train/images/
     - data/valid/images/
