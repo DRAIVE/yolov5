@@ -11,7 +11,7 @@ stages:
     - src/submod_git
   
   download:
-    cmd: aws --endpoint-url ${download.url} s3 cp s3:${download.path} data --recursive 
+    cmd: aws --endpoint-url ${download.url} s3 cp s3://${download.bucket}/${download.commit}/${download.path} data --recursive 
     outs: 
     - data/train/images/
     - data/valid/images/
