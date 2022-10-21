@@ -9,12 +9,19 @@ stages:
     always_changed: true
     outs: 
     - src/submod_git
+  
+  download:
+    cmd: aws --endpoint-url ${download.url} s3 cp s3://${download.bucket}/${download.commit}/${download.path} data --recursive 
+    outs: 
+    - data/train/images/
+    - data/valid/images/
 
   train:
     cmd: python src/train_yolo.py
     deps:
     - src/train_yolo.py
     - src/submod_git
+    - data/train/images/
     params:
     - train.epochs
     - train.batch_size
@@ -26,6 +33,7 @@ stages:
     deps:
     - src/submod_git
     - src/val_yolo.py
+    - data/valid/images/
     - models/
     params:
     - validate.conf_thres

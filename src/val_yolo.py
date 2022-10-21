@@ -7,12 +7,16 @@ import os
 def main():
     mlflow.set_experiment("License plate detection using YOLOv5")
     
-    #start mlfow
-    mlflow.start_run()
-    
     #load params.yaml file
     params_val = yaml.safe_load(open("params.yaml"))["validate"]
     params_train = yaml.safe_load(open("params.yaml"))["train"]
+    params_dl = yaml.safe_load(open("params.yaml"))["download"]
+    
+  
+    #start mlfow
+    mlflow.start_run(
+        description=f'Dataset in LakeFS:{params_dl["url"]}/repositories/{params_dl["bucket"]}/objects?path={params_dl["path"]}&ref={params_dl["commit"]}'
+    )
 
     #do validation
     #metrics = (mp, mr, map50, map, speed)
@@ -27,7 +31,6 @@ def main():
                   iou_thres=params_val["iou_thres"])
     
     #log parameters
-    mlflow.log_param("Dataset", "/data/ai-dataset-dvc-poc/data/OpenALPR/")
     mlflow.log_param("Training epochs", params_train["epochs"])
     mlflow.log_param("Training Batch size", params_train["batch_size"])
     mlflow.log_param("Confidence threshold", params_val["conf_thres"])
