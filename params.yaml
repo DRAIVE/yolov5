@@ -1,8 +1,8 @@
 download:
-  url: 'http://jensen.etit.tu-chemnitz.de:9010'
-  bucket: 'openalpr'
-  commit: 'eec6e1da4255'
-  path: 'OpenALPR/JPEGImages/'
+  url: http://jensen.etit.tu-chemnitz.de:9010
+  bucket: openalpr
+  commit: eec6e1da4255
+  path: OpenALPR/JPEGImages/
 
 train:
   epochs: 1
@@ -10,4 +10,4 @@ train:
 
 validate:
   conf_thres: 0.3
-  iou_thres: 0.5
+  iou_thres: 0.4

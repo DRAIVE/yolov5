@@ -5,6 +5,7 @@ import yaml
 import os
 
 def main():
+    mlflow.set_tracking_uri("http://jensen.etit.tu-chemnitz.de:9040")
     mlflow.set_experiment("License plate detection using YOLOv5")
     
     #load params.yaml file

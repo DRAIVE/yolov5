@@ -25,7 +25,7 @@ stages:
         train.epochs: 1
     outs:
     - path: models/
-      md5: 5189dbd524cf87c6804413db9b440c8a.dir
+      md5: 0c4fbe482bcb5b374888be2c99cb4011.dir
       size: 14429506
       nfiles: 2
   install_requirements:
@@ -42,19 +42,19 @@ stages:
       size: 1128509
       nfiles: 21
     - path: models/
-      md5: 5189dbd524cf87c6804413db9b440c8a.dir
+      md5: 0c4fbe482bcb5b374888be2c99cb4011.dir
       size: 14429506
       nfiles: 2
     - path: src/submod_git
       md5: 1cc108f2272374517f05856983f547c2
       size: 54
     - path: src/val_yolo.py
-      md5: 0b7d74c5df43084653ed00ab11adee60
-      size: 2141
+      md5: a74b08d50591f516ec2762724c6766fc
+      size: 2442
     params:
       params.yaml:
         validate.conf_thres: 0.3
-        validate.iou_thres: 0.5
+        validate.iou_thres: 0.4
   download:
     cmd: aws --endpoint-url http://jensen.etit.tu-chemnitz.de:9010 s3 cp s3://openalpr/eec6e1da4255/OpenALPR/JPEGImages/
       data --recursive
