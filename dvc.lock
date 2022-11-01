@@ -18,19 +18,19 @@ stages:
       size: 5732
       nfiles: 75
     - path: src/train_yolo.py
-      md5: fb34975d5a8ee1afd070cf23a9a5b875
-      size: 1246
+      md5: 1c7d1218e0f2795417ee963182f566e6
+      size: 1245
     - path: src/yolov5/
-      md5: 43ac47f39eb2bc48789bfc10bc7c4a51.dir
-      size: 2022811
-      nfiles: 169
+      md5: 9b5c9f5ba9d37757a2b8454529044a45.dir
+      size: 2048113
+      nfiles: 170
     params:
       params.yaml:
         train.batch_size: 4
         train.epochs: 1
     outs:
     - path: models/
-      md5: cbf08b2fdfb164c9b59f3b42c854ecf5.dir
+      md5: d410dcb7ecafa911dee0e26b86d08116.dir
       size: 14429513
       nfiles: 2
   install_requirements:
@@ -51,20 +51,20 @@ stages:
       size: 1655
       nfiles: 21
     - path: models/
-      md5: cbf08b2fdfb164c9b59f3b42c854ecf5.dir
+      md5: d410dcb7ecafa911dee0e26b86d08116.dir
       size: 14429513
       nfiles: 2
     - path: src/val_yolo.py
-      md5: a74b08d50591f516ec2762724c6766fc
-      size: 2442
+      md5: dcb406fac6603568e03cc770bb6c36c1
+      size: 2514
     - path: src/yolov5/
-      md5: 0a35fcf308b8da77243ffa35e93dafa1.dir
+      md5: 9b5c9f5ba9d37757a2b8454529044a45.dir
       size: 2048113
       nfiles: 170
     params:
       params.yaml:
         validate.conf_thres: 0.3
-        validate.iou_thres: 0.4
+        validate.iou_thres: 0.5
   download:
     cmd: aws --endpoint-url http://jensen.etit.tu-chemnitz.de:9010 s3 cp s3://openalpr/eec6e1da4255/OpenALPR/JPEGImages/
       data --recursive
