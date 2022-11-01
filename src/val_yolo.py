@@ -21,7 +21,7 @@ def main():
 
     #do validation
     #metrics = (mp, mr, map50, map, speed)
-    metrics, maps, t = val.run(weights='models/best_latest.pt',
+    metrics, maps, t = val.run(weights='models\data_lp.yaml',
                   project='runs/val',
                   name='run',
                   exist_ok=True,
