@@ -13,20 +13,25 @@ stages:
       md5: d7f522c4eacd4240d3c597526495602a.dir
       size: 5400566
       nfiles: 75
-    - path: src/submod_git
-      md5: 1cc108f2272374517f05856983f547c2
-      size: 54
+    - path: data/train/labels/
+      md5: bc69a46932ce8be3d357eed00e98facb.dir
+      size: 5732
+      nfiles: 75
     - path: src/train_yolo.py
-      md5: fb34975d5a8ee1afd070cf23a9a5b875
-      size: 1246
+      md5: 1c7d1218e0f2795417ee963182f566e6
+      size: 1245
+    - path: src/yolov5/
+      md5: 9b5c9f5ba9d37757a2b8454529044a45.dir
+      size: 2048113
+      nfiles: 170
     params:
       params.yaml:
         train.batch_size: 4
         train.epochs: 1
     outs:
     - path: models/
-      md5: 5189dbd524cf87c6804413db9b440c8a.dir
-      size: 14429506
+      md5: d410dcb7ecafa911dee0e26b86d08116.dir
+      size: 14429513
       nfiles: 2
   install_requirements:
     cmd: pip install -r src/requirements_yolo_updated.txt --extra-index-url https://download.pytorch.org/whl/cu116
@@ -41,16 +46,21 @@ stages:
       md5: 63ffe70257ff2d32976a967293263177.dir
       size: 1128509
       nfiles: 21
+    - path: data/valid/labels/
+      md5: caad1a4c185e3c5b577e0769f58d897d.dir
+      size: 1655
+      nfiles: 21
     - path: models/
-      md5: 5189dbd524cf87c6804413db9b440c8a.dir
-      size: 14429506
+      md5: d410dcb7ecafa911dee0e26b86d08116.dir
+      size: 14429513
       nfiles: 2
-    - path: src/submod_git
-      md5: 1cc108f2272374517f05856983f547c2
-      size: 54
     - path: src/val_yolo.py
-      md5: 0b7d74c5df43084653ed00ab11adee60
-      size: 2141
+      md5: dcb406fac6603568e03cc770bb6c36c1
+      size: 2514
+    - path: src/yolov5/
+      md5: 9b5c9f5ba9d37757a2b8454529044a45.dir
+      size: 2048113
+      nfiles: 170
     params:
       params.yaml:
         validate.conf_thres: 0.3
@@ -63,7 +73,15 @@ stages:
       md5: d7f522c4eacd4240d3c597526495602a.dir
       size: 5400566
       nfiles: 75
+    - path: data/train/labels/
+      md5: bc69a46932ce8be3d357eed00e98facb.dir
+      size: 5732
+      nfiles: 75
     - path: data/valid/images/
       md5: 63ffe70257ff2d32976a967293263177.dir
       size: 1128509
+      nfiles: 21
+    - path: data/valid/labels/
+      md5: caad1a4c185e3c5b577e0769f58d897d.dir
+      size: 1655
       nfiles: 21

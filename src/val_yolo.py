@@ -5,6 +5,7 @@ import yaml
 import os
 
 def main():
+    mlflow.set_tracking_uri("http://jensen.etit.tu-chemnitz.de:9040")
     mlflow.set_experiment("License plate detection using YOLOv5")
     
     #load params.yaml file
@@ -20,7 +21,7 @@ def main():
 
     #do validation
     #metrics = (mp, mr, map50, map, speed)
-    metrics, maps, t = val.run(weights='models/best_latest.pt',
+    metrics, maps, t = val.run(weights='models\data_lp.yaml',
                   project='runs/val',
                   name='run',
                   exist_ok=True,
