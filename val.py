@@ -1,4 +1,4 @@
-# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# YOLOv5 ЁЯЪА by Ultralytics, GPL-3.0 license
 """
 Validate a trained YOLOv5 detection model on a detection dataset
 
@@ -281,7 +281,7 @@ def run(
     pf = '%22s' + '%11i' * 2 + '%11.3g' * 4  # print format
     LOGGER.info(pf % ('all', seen, nt.sum(), mp, mr, map50, map))
     if nt.sum() == 0:
-        LOGGER.warning(f'WARNING ⚠️ no labels found in {task} set, can not compute metrics without labels')
+        LOGGER.warning(f'WARNING тЪая╕П no labels found in {task} set, can not compute metrics without labels')
 
     # Print results per class
     if (verbose or (nc < 50 and not training)) and nc > 1 and len(stats):
@@ -333,7 +333,11 @@ def run(
     maps = np.zeros(nc) + map
     for i, c in enumerate(ap_class):
         maps[c] = ap[i]
-    return (mp, mr, map50, map, *(loss.cpu() / len(dataloader)).tolist()), maps, t, tp, fp, nt-tp, f1
+
+    #nt_new is nt with zeros removed, ADDED
+    nt_new = nt[nt != 0]
+    #return updated with (tp, fp, tp-nt, f1, nc), ADDED
+    return (mp, mr, map50, map, *(loss.cpu() / len(dataloader)).tolist()), maps, t, (tp, fp, nt_new-tp, f1, nc)
 
 
 def parse_opt():
@@ -373,9 +377,9 @@ def main(opt):
 
     if opt.task in ('train', 'val', 'test'):  # run normally
         if opt.conf_thres > 0.001:  # https://github.com/ultralytics/yolov5/issues/1466
-            LOGGER.info(f'WARNING ⚠️ confidence threshold {opt.conf_thres} > 0.001 produces invalid results')
+            LOGGER.info(f'WARNING тЪая╕П confidence threshold {opt.conf_thres} > 0.001 produces invalid results')
         if opt.save_hybrid:
-            LOGGER.info('WARNING ⚠️ --save-hybrid will return high mAP from hybrid labels, not from predictions alone')
+            LOGGER.info('WARNING тЪая╕П --save-hybrid will return high mAP from hybrid labels, not from predictions alone')
         run(**vars(opt))
 
     else:
