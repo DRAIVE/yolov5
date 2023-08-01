@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# YOLOv5 ЁЯЪА by Ultralytics, GPL-3.0 license
-=======
 # YOLOv5 🚀 by Ultralytics, AGPL-3.0 license
->>>>>>> 34c21874f863d64c73478c5fc29cf4b2720d06e2
 """
 Train a YOLOv5 model on a custom dataset.
 Models and datasets download automatically from the latest YOLOv5 release.
