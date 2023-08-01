@@ -1,4 +1,4 @@
-# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# YOLOv5 🚀 by Ultralytics, AGPL-3.0 license
 # Builds ultralytics/yolov5:latest image on DockerHub https://hub.docker.com/r/ultralytics/yolov5
 # Image is CUDA-optimized for YOLOv5 single/multi-GPU training and inference
 
@@ -31,7 +31,7 @@ RUN git clone https://github.com/ultralytics/yolov5 /usr/src/app
 COPY requirements.txt .
 RUN python3 -m pip install --upgrade pip wheel
 RUN pip install --no-cache -r requirements.txt albumentations comet gsutil notebook \
-    coremltools onnx onnx-simplifier onnxruntime 'openvino-dev>=2022.3'
+    coremltools onnx onnx-simplifier onnxruntime 'openvino-dev>=2023.0'
     # tensorflow tensorflowjs \
 
 # Set environment variables
